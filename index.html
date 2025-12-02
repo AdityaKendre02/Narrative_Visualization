@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring the AI-Powered Job Market</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div id="progress-bar"></div>
+
+    <!-- Chapter 1: Introduction -->
+    <section class="chapter" id="intro">
+        <div class="content">
+            <div class="chapter-number">Chapter 1</div>
+            <h1 class="chapter-title">Introduction - A New Era of Work</h1>
+            <p class="lead">Artificial intelligence isn’t just a buzzword anymore - it’s a daily reality, reshaping
+                careers and entire industries. Between 2023 and 2025, AI became a driving force for change in how we
+                work and what we prioritize. Our journey begins with a closer look at the data from 500 unique jobs
+                spanning 11 distinct industries.</p>
+            <div class="stat-highlight">
+                <div class="big-number" id="total-jobs">501</div>
+                <div class="stat-label">Jobs Analyzed Across 11 Industries</div>
+            </div>
+            <div class="scroll-prompt">↓ Scroll to explore</div>
+        </div>
+    </section>
+
+    <!-- Chapter 2: AI Impact by Role -->
+    <section id="ai-impact" class="chapter section">
+        <div class="content">
+            <div class="chapter-number">Chapter 2</div>
+            <h2 class="chapter-title">How Is Artificial Intelligence Reshaping Each Job?</h2>
+            <p class="narrative-text">
+                As AI enters the mainstream workplace, its influence varies dramatically from role to role. This bar
+                chart ranks eleven key job titles by their “AI impact score”- a measure of how much AI automation,
+                augmentation, or disruption each position experiences between 2023 and 2025.
+            </p>
+            <div id="chart-1" class="chart"></div>
+            <div class="insight">
+                <p>“Highly technical and analytical roles see the sharpest rise in AI influence, while human-centered
+                    and strategic roles still depend a lot on uniquely human strengths. Where does your job sit on this
+                    scale? And how will you adapt as AI continues to reshape the market?”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 3: In-Demand Skills -->
+    <section id="skills" class="chapter section">
+        <div class="content">
+            <div class="chapter-number">Chapter 3</div>
+            <h2 class="chapter-title">What Does the AI-Powered Job Market Value Most?</h2>
+            <p class="narrative-text">
+                As artificial intelligence integrates into nearly every profession, the skills that employers seek are
+                also evolving. This bar chart shines spotlight on the most sought-after abilities in 2023-2025,
+                revealing what it really takes to thrive.
+            </p>
+            <div class="viz-toggle">
+                <button id="toggle-view" class="btn">Switch to Bar Chart</button>
+            </div>
+            <div id="chart-3" class="chart"></div>
+            <div class="insight">
+                <p>“From technical mastery-Python, machine learning, cybersecurity-to people-centered
+                    capabilities-communication, sales, project management. Success in the AI age isn’t just about
+                    coding; it’s about combining human strengths with smart technology. Which skill will you master
+                    next?”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 4: Compensation and AI -->
+    <section id="compensation" class="chapter section">
+        <div class="content">
+            <div class="chapter-number">Chapter 4</div>
+            <h2 class="chapter-title">Is AI Changing What You Earn?</h2>
+            <p class="narrative-text">
+                Artificial intelligence isn’t just changing how jobs are done-it’s reshaping what those jobs are worth.
+                This box plot compares salary ranges across three categories of AI impact: Low, Medium, and High.
+            </p>
+            <div id="chart-4" class="chart"></div>
+            <div class="insight">
+                <p>“In the AI-powered job market, the greatest rewards go to those who keep their skills on the cutting
+                    edge. The future is not just about working with AI-it’s about using it to advance your career and
+                    your compensation.”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 5: Find Your Path -->
+    <section class="chapter" id="explorer">
+        <div class="content">
+            <div class="chapter-number">Chapter 5</div>
+            <h2 class="chapter-title">Personalized Insights for Your Career Adventure</h2>
+            <p class="narrative-text">
+                The AI-powered job market isn’t a one-size-fits-all story-it’s a choose-your-own adventure. With our
+                interactive explorer, you can cherry-pick a job role to unlock a custom dashboard of insights about
+                skills, salaries, market growth, and geographic hotspots.
+            </p>
+
+            <div class="explorer-panel">
+                <div class="explorer-control">
+                    <label for="job-select">Choose a Job Role:</label>
+                    <select id="job-select">
+                        <option value="">Select a role...</option>
+                    </select>
+                </div>
+
+                <div id="job-details" class="job-details hidden">
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <div class="detail-icon">💰</div>
+                            <div class="detail-label">Average Salary</div>
+                            <div class="detail-value" id="job-salary">-</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">📈</div>
+                            <div class="detail-label">Growth Outlook</div>
+                            <div class="detail-value" id="job-growth">-</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">🤖</div>
+                            <div class="detail-label">AI Adoption</div>
+                            <div class="detail-value" id="job-ai">-</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">⚠️</div>
+                            <div class="detail-label">Automation Risk</div>
+                            <div class="detail-value" id="job-risk">-</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-needed">
+                        <h4>Most Common Skills Required:</h4>
+                        <div id="job-skills" class="skill-tags"></div>
+                    </div>
+
+                    <div class="locations-available">
+                        <h4>Top Locations:</h4>
+                        <div id="job-locations" class="location-list"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="insight" style="margin-top: 2rem;">
+                <p>“Try different roles-compare skills required, salary numbers, growth outlook, and see how your goals
+                    align with global trends. What will you discover about your path forward?”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Epilogue -->
+    <section class="chapter" id="conclusion">
+        <div class="content">
+            <div class="chapter-number">Epilogue</div>
+            <h2 class="chapter-title">The Future of Work</h2>
+
+            <div class="key-takeaways">
+                <div class="takeaway">
+                    <div class="takeaway-icon">🔄</div>
+                    <h3>Transformation, Not Elimination</h3>
+                    <p>AI is reshaping jobs, not destroying them. Roles evolve, requiring new skills and approaches.</p>
+                </div>
+
+                <div class="takeaway">
+                    <div class="takeaway-icon">🎯</div>
+                    <h3>Skills Are Your Superpower</h3>
+                    <p>Combining technical AI skills with human capabilities like communication creates unbeatable
+                        value.</p>
+                </div>
+
+                <div class="takeaway">
+                    <div class="takeaway-icon">🌍</div>
+                    <h3>Location Matters Less</h3>
+                    <p>Remote work is breaking down geographic barriers, making AI opportunities more accessible.</p>
+                </div>
+
+                <div class="takeaway">
+                    <div class="takeaway-icon">📚</div>
+                    <h3>Never Stop Learning</h3>
+                    <p>The AI landscape changes rapidly. Continuous learning isn't optional—it's essential.</p>
+                </div>
+            </div>
+
+            <div class="final-thought">
+                <p class="quote">"The best time to prepare for the AI revolution was yesterday. The second best time is
+                    now."</p>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
